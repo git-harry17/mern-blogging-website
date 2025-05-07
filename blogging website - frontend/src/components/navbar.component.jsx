@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link , Outlet} from "react-router-dom";
 import logo from "../imgs/logo.png";
 import { useState } from "react";
 const Navbar = () => {
@@ -6,11 +6,12 @@ const Navbar = () => {
     const [searchBoxVisibility,setSearchBoxVisibility]=useState(false)
 
     return (
+        <>
         <nav className="navbar">
             <Link to="/" className="flex-none w-10">
                 <img src={logo} className="flex-none w-10 w-full" alt="Logo" />
             </Link>
-            <div className={"absolute bg-white w-full left-0 top-full mt-0.5 border-b border-grey py-4 px-[5vw] md:border-0 md:block md:relative md:insert-0 md:pd-0 md:w-auto md:show" + ( searchBoxVisibility ? "show" : "hide")}>
+            <div className={"absolute bg-white w-full left-0  mt-0.5 border-b border-grey py-4 px-[5vw] md:border-0 md:block md:relative md:insert-0 md:pd-0 md:w-auto md:show" + ( searchBoxVisibility ? "show" : "hide")}>
                 <input
                 type="text"
                 placeholder="Search"
@@ -35,6 +36,8 @@ const Navbar = () => {
                 </Link>
             </div>
         </nav>
+        <Outlet/>
+        </>
     );
 };
 
